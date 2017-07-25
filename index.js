@@ -5,7 +5,7 @@ var cors = require('cors')
 
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/appointment', (req, res) => {
   knex('appointment').select('*').then(appointments => {
     res.json(appointments)
   })
