@@ -11,4 +11,11 @@ app.get('/appointment', (req, res) => {
   })
 })
 
+app.get('/appointment/:id', (req, res) => {
+  let id = req.params.id
+  knex('appointment').where('id', id).first().then(appointment => {
+    res.json(appointment)
+  })
+})
+
 app.listen(process.env.PORT || 5000)
